@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: elad2050/e2e-test-proj
+  repository: docker.io/elad2050/e2e-test-proj
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
