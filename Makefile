@@ -6,7 +6,7 @@ export-requirements:
 	uv export --no-hashes > requirements.txt
 
 build-docker:
-	docker build -f ${DOCKERFILE_PATH} -t ${DOCKER_HUB_REPO}:${COMMIT_HASH} .
+	docker build -f ${DOCKERFILE_PATH} -t ${DOCKER_HUB_REPO}:${COMMIT_HASH} -t ${DOCKER_HUB_REPO}:latest .
 
 push-docker: build-docker
 	docker push ${DOCKER_HUB_REPO}:${COMMIT_HASH}
