@@ -10,6 +10,7 @@ build-docker:
 
 push-docker: build-docker
 	docker push ${DOCKER_HUB_REPO}:${COMMIT_HASH}
+	docker push ${DOCKER_HUB_REPO}:latest
 
 test-in-docker: export-requirements build-docker
 	docker run -it -p 8000:8000 ${COMMIT_HASH}
