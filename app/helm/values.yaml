@@ -40,6 +40,9 @@ service:
   type: ClusterIP
   port: 80
 
+app:
+  port: 8000
+
 ingress:
   enabled: false
   className: ""
@@ -80,3 +83,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+livenessProbe:
+  initialDelaySeconds: 5
