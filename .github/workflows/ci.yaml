@@ -6,12 +6,16 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-push-image:
     runs-on: ubuntu-latest
 
     steps:
       - name: 'Checkout code'
         uses: actions/checkout@v4
 
+      - name: 'Docker Login'
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
       - name: 'Build image'
-        uses: ./actions/build-image
+        run: |
+          make push-docker
